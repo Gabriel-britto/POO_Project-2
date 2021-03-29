@@ -3,11 +3,11 @@ from advogado import Advogado
 
 
 flag = 0
+teste = Advogado(3)
 while flag != 9:
     print("-" * 15, "Sistema Jurídico", "-" * 15)
     flag = int(input("\n1 - Objetos de teste\n2 - Processos\n3 - Remover Processo\n4 - Mostrar Tamanho\n5 - Adicionar Processo\n6 - Ordenar objetos\n7 - Buscar Processo\n8 - Custo\n9 - Sair\n> "))
     if flag == 1:
-        teste = Advogado(3)
         teste.adicionar_processo_L(0, Processo("Deferido", 123, "Latrocinio", 100))
         teste.adicionar_processo_L(0, Processo("Indeferido", 400, "Assalto", 300))
         teste.adicionar_processo_L(0, Processo("Deferido", 1000, "Fraude", 400))
@@ -27,8 +27,6 @@ while flag != 9:
                 print(teste.processosF)
             elif menuelemento == 3:
                 teste.imprimir_processos()
-            else:
-                print("Número inválido")
     elif flag == 3:
         menuremover = 0
         while menuremover != 4:
@@ -43,8 +41,6 @@ while flag != 9:
             elif menuremover == 3:
                 posicao = int(input("Digite a posição do processo na lista(O processo deve existir na lista): "))
                 teste.remover_processo_L(posicao)
-            else:
-                print("Número inválido.")
     elif flag == 4:
         menutamanho = 0
         while menutamanho != 4:
@@ -56,8 +52,6 @@ while flag != 9:
                 print("Processos Fila tem {} objetos.".format(teste.mostrar_tam_processosF()))
             elif menutamanho == 3:
                 print("Processos Lista tem {} objetos.".format(teste.mostrar_tam_processosL()))
-            else:
-                print("Número inválido")
     elif flag == 5:
         menuadicionar = 0
         while menuadicionar != 4:
@@ -85,8 +79,6 @@ while flag != 9:
                 cod = int(input("Digite o Código do processo: "))
                 novo = Processo(status,custo,descricao,cod)
                 teste.adicionar_processo_L(posicao, novo)
-            else:
-                print("Número inválido")
     elif flag == 6:
         teste.ordena_processos()
         print("Objetos Ordenados")
@@ -108,5 +100,3 @@ while flag != 9:
                 cod = int(input("Digite o Código do Processo: "))
                 valor = int(input("Digite em quanto quer aumentar o custo: "))
                 teste.incrementa_custo_processo(cod, valor)
-            else:
-                print("Número inválido")
